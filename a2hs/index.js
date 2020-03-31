@@ -50,4 +50,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
 });
 
-window.addEventListener('keydown', (e) => { console.log("Key=" + e.key);});
+window.addEventListener('keydown', (e) => { console.log("Key=" + e.key); e.preventDefault(); });
