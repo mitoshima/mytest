@@ -51,11 +51,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
 });
 
 window.addEventListener('keydown', (e) => {
-  e.preventDefault();
+  if (e.key == "AudioVolumeUp")
+    e.preventDefault();
   console.log("KeyDown=" + e.key);
 });
 
 window.addEventListener('keyup', (e) => {
-  e.preventDefault();
-  console.log("KeyUp=" + e.key);
+  //e.preventDefault();
+  //console.log("KeyUp=" + e.key);
 });
