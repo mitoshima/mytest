@@ -7,6 +7,7 @@
 canvas {
   border: 0px solid black;
   position: absolute;
+  transform-origin: center;
 }
 </style>
 
@@ -59,16 +60,11 @@ canvas {
       if (angle % 180 == 90) {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
-          const offset = (pixel_height - pixel_width) / 2;
-          canvas.style.left = `${offset}px`;
-          canvas.style.top = `-${offset}px`;
           canvas.height = pixel_width;
           canvas.width = pixel_height;
       } else {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
-          canvas.style.left = '0px';
-          canvas.style.top = '0px';
           canvas.width  = pixel_width;
           canvas.height = pixel_height;
       }
