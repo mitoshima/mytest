@@ -5,7 +5,7 @@
         top: 7px;
     }
 canvas {
-  border: 10px solid black;
+  border: 0px solid black;
   position: absolute;
 }
 </style>
@@ -20,15 +20,19 @@ canvas {
 </body>
 <script>
   const canvas = document.querySelector('canvas');
-  const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
+  //const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
+  const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
 
+  /*
   gl.clearColor(1, 1, 1, 1);
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.scissor(125, 63, 250, 125);
   gl.enable(gl.SCISSOR_TEST);
+*/
 
   let hue = 0;
   const raf = () => {
+      /*
       hue += 1;
       r = Math.sin(0.05 * hue + 0) * 127 + 128;
       g = Math.sin(0.05 * hue + 2) * 127 + 128;
@@ -36,6 +40,7 @@ canvas {
       gl.clearColor(r / 255, g / 255, b / 255, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.flush();
+*/
       requestAnimationFrame(raf);
   };
   requestAnimationFrame(raf);
@@ -67,6 +72,14 @@ canvas {
           canvas.width  = pixel_width;
           canvas.height = pixel_height;
       }
+      c2.fillStyle = 'rgb(255,255,155)';
+      c2.fillRect(0, 0, pixel_width, pixel_height);
+      c2.fillStyle = 'rgb(0,0,0)';
+      //c2.fillRect(0, 0, pixel_width, pixel_height);
+      //c2.fillText(`size=${pixel_width}x${pixel_height}`, 0, 0);
+      c2.strokeStyle = 'rgb(255,0,0)';
+      c2.strokeRect(0, 0, pixel_width, pixel_height);
+/*
       gl.disable(gl.SCISSOR_TEST);
       gl.clearColor(1, 1, 1, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
@@ -74,8 +87,10 @@ canvas {
       angle % 180 == 90 ? gl.scissor(63, 125, 125, 250)
           : gl.scissor(125, 63, 250, 125);
       gl.enable(gl.SCISSOR_TEST);
+*/
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
+  window.addEventListener('resize', setSizeAndRotation);
   setSizeAndRotation();
 </script>
 </html>
