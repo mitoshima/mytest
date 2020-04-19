@@ -1,0 +1,74 @@
+<html>
+  <style>
+canvas {
+  border: 0px solid black;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+</style>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>Hardware Overlay Demo</title>
+<body>
+  <canvas></canvas>
+</body>
+<script>
+  const canvas = document.querySelector('canvas');
+  const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight - 100;
+
+  gl.clearColor(1, 1, 1, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.scissor(125, 63, 250, 125);
+  gl.enable(gl.SCISSOR_TEST);
+
+  let hue = 0;
+  const raf = () => {
+      hue += 1;
+      r = Math.sin(0.05 * hue + 0) * 127 + 128;
+      g = Math.sin(0.05 * hue + 2) * 127 + 128;
+      b = Math.sin(0.05 * hue + 4) * 127 + 128;
+      gl.clearColor(r / 255, g / 255, b / 255, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.flush();
+      requestAnimationFrame(raf);
+  };
+  requestAnimationFrame(raf);
+
+  const setSizeAndRotation = () => {
+      const angle = screen.orientation.angle % 360;
+      canvas.style.transform = `rotateZ(${angle}deg)`;
+      const dpr = devicePixelRatio;
+      canvas.style.border = `${1 / dpr}px solid black`;
+      if (angle % 180 == 90) {
+          const [width, height] = [250 / dpr, 500 / dpr];
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+          const offset = (height - width) / 2;
+          canvas.style.left = `${offset}px`;
+          canvas.style.top = `-${offset}px`;
+          canvas.width = 250;
+          canvas.height = 500;
+      } else {
+          canvas.style.width = `${500 / dpr}px`;
+          canvas.style.height = `${250 / dpr}px`;
+          canvas.style.left = '0px';
+          canvas.style.top = '0px';
+          canvas.width = 500;
+          canvas.height = 250;
+      }
+      gl.disable(gl.SCISSOR_TEST);
+      gl.clearColor(1, 1, 1, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.flush();
+      angle % 180 == 90 ? gl.scissor(63, 125, 125, 250)
+          : gl.scissor(125, 63, 250, 125);
+      gl.enable(gl.SCISSOR_TEST);
+  };
+  screen.orientation.addEventListener('change', setSizeAndRotation);
+  setSizeAndRotation();
+</script>
+</html>
