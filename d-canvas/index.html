@@ -82,8 +82,10 @@ canvas {
 
       // Text
       c2.fillStyle = 'rgb(255,255,255)';
-      c2.font = "30px Arial";
-      c2.fillText("Hello World", 10, 50);
+      c2.font = "40px Arial";
+      c2.fillText(`size=${pixel_width}x${pixel_height}`, 10, 50);
+      c2.strokeStyle = 'rgb(0,0,0)';
+      c2.strokeText(`size=${pixel_width}x${pixel_height}`, 10, 50);
 
 /*
       gl.disable(gl.SCISSOR_TEST);
