@@ -72,13 +72,19 @@ canvas {
           canvas.width  = pixel_width;
           canvas.height = pixel_height;
       }
-      c2.fillStyle = 'rgb(255,255,155)';
+      c2.fillStyle = 'rgb(255,255,0)';
       c2.fillRect(0, 0, pixel_width, pixel_height);
-      c2.fillStyle = 'rgb(0,0,0)';
-      //c2.fillRect(0, 0, pixel_width, pixel_height);
-      //c2.fillText(`size=${pixel_width}x${pixel_height}`, 0, 0);
       c2.strokeStyle = 'rgb(255,0,0)';
       c2.strokeRect(0, 0, pixel_width, pixel_height);
+
+      c2.fillStyle = 'rgb(255,255,255)';
+      c2.fillRect(100, 100, 200, 200);
+
+      // Text
+      c2.fillStyle = 'rgb(255,255,255)';
+      c2.font = "30px Arial";
+      c2.fillText("Hello World", 10, 50);
+
 /*
       gl.disable(gl.SCISSOR_TEST);
       gl.clearColor(1, 1, 1, 1);
