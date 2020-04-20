@@ -40,7 +40,7 @@ body {
 
   const setSizeAndRotation = () => {
       const angle = screen.orientation.angle % 360;
-      //canvas.style.transform = `rotateZ(${angle}deg)`;
+      canvas.style.transform = `rotateZ(${angle}deg)`;
       const dpr = devicePixelRatio;
       //      canvas.style.border = `${1 / dpr}px solid black`;
 
@@ -53,8 +53,8 @@ body {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
           var offset = (dp_height - dp_width) / 2;
-//          canvas.style.left = `${offset}px`;
-//          canvas.style.top = `${offset}px`;
+          canvas.style.left = `${offset}px`;
+          canvas.style.top = `${offset}px`;
           canvas.height = pixel_width;
           canvas.width = pixel_height;
       } else {
