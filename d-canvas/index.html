@@ -12,9 +12,9 @@ body {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <title>Hardware Overlay Demo</title>
-  <body onresize="setSizeAndRotation()">
+  <body>
     <canvas></canvas>
-</body>
+  </body>
 <script>
   const canvas = document.querySelector('canvas');
   const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
@@ -97,7 +97,7 @@ body {
       gl.enable(gl.SCISSOR_TEST);
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
-//  window.addEventListener('resize', setSizeAndRotation);
+  window.addEventListener('resize', function() {setTimeout(setSizeAndRotation, 1);});
   setSizeAndRotation();
 </script>
 </html>
