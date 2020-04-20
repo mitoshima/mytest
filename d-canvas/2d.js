@@ -11,7 +11,7 @@ function init2D() {
     var dp_height = window.innerHeight;
     var pixel_width = Math.floor(dp_width * dpr);
     var pixel_height = Math.floor(dp_height * dpr);
-    var offset = (dp_height - dp_width) / 2;
+    var offset = (dp_height - dp_width) / 2.0;
     console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle +
 		" offset=" + offset);
