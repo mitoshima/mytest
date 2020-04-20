@@ -1,0 +1,8 @@
+{
+  "background_color": "purple",
+  "description": "Shows random fox pictures. Hey, at least it isn't cats.",
+  "display": "fullscreen",
+  "name": "Hardware Overlay Demo",
+  "short_name": "HWOverlay",
+  "start_url": "/mytest/d-canvas/index.html"
+}
