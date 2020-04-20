@@ -44,7 +44,7 @@ function init2D() {
 	canvas.style.top = "0px";
 	break;
       case 180:
-	canvas.style.transform-origin = "right bottom";
+	canvas.style.transform-origin = "top left";
 	canvas.style.left = "-${dp_width}0px";
 	canvas.style.top = "-${dp_height}0px";
 	break;
