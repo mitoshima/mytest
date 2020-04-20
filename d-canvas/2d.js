@@ -35,12 +35,11 @@ function init2D() {
 	canvas.style.transformOrigin = "top left";
 	canvas.style.left = `${dp_width}px`;
 	canvas.style.top = "0px";
-	console.log('90 = ' + `${dp_height}`);
 	break;
       case 180:
 	canvas.style.transformOrigin = "top left";
-	canvas.style.left = `${dp_height}px`;
-	canvas.style.top = `${dp_width}px`;
+	canvas.style.left = `${dp_width}px`;
+	canvas.style.top = `${dp_height}px`;
 	break;
       case 270:
 	canvas.style.transformOrigin = "top left";
