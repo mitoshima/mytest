@@ -40,7 +40,6 @@ body {
 
   const setSizeAndRotation = () => {
       const angle = screen.orientation.angle % 360;
-      console.log('update:' + angle);
       canvas.style.transform = `rotateZ(${angle}deg)`;
       const dpr = devicePixelRatio;
       //      canvas.style.border = `${1 / dpr}px solid black`;
@@ -49,6 +48,7 @@ body {
       var dp_height = window.innerHeight;
       var pixel_width = Math.floor(dp_width * dpr);
       var pixel_height = Math.floor(dp_height * dpr);
+      console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height);
 
       if (angle % 180 == 90) {
           canvas.style.width = `${dp_height}px`;
