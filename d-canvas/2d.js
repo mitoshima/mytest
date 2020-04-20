@@ -67,7 +67,7 @@ function init2D() {
     // Text
     c2.fillStyle = 'rgb(255,255,255)';
     c2.font = "40px Arial";
-    var text = `Xpixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`;
+    var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`;
     c2.fillText(text, 10, 50);
     c2.strokeStyle = 'rgb(0,0,0)';
     c2.strokeText(text, 10, 50);
