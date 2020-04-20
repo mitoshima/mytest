@@ -4,7 +4,6 @@ function init2D() {
 
   const setSizeAndRotation = () => {
     const angle = screen.orientation.angle % 360;
-    canvas.style.transform = `rotateZ(${angle}deg)`;
     const dpr = devicePixelRatio;
 
     var dp_width = window.innerWidth;
@@ -18,9 +17,7 @@ function init2D() {
       canvas.style.left = `-${offset}px`;
       canvas.style.top = `${offset}px`;
       canvas.height = pixel_width;
-      canvas.width = p
-
-      ixel_height;
+      canvas.width = pixel_height;
       var tmp = pixel_height;
       pixel_height = pixel_width;
       pixel_width = tmp;
@@ -32,35 +29,35 @@ function init2D() {
       canvas.width  = pixel_width;
       canvas.height = pixel_height;
     }
+    canvas.style.transform = `rotateZ(${angle}deg)`;
     switch (angle) {
       case 0:
-	canvas.style.transform-origin = "top left";
+	canvas.style.transformOrigin = "top left";
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	break;
       case 90:
-	canvas.style.transform-origin = "top left";
-	canvas.style.left = "${dp_height}0px";
+	canvas.style.transformOrigin = "top left";
+	canvas.style.left = `${dp_height}px`;
 	canvas.style.top = "0px";
 	break;
       case 180:
-	canvas.style.transform-origin = "top left";
-	canvas.style.left = "-${dp_width}0px";
-	canvas.style.top = "-${dp_height}0px";
+	canvas.style.transformOrigin = "top left";
+	canvas.style.left = `-${dp_width}px`;
+	canvas.style.top = `-${dp_height}px`;
 	break;
       case 270:
-	canvas.style.transform-origin = "top left";
+	canvas.style.transformOrigin = "top left";
 	canvas.style.left = "0px";
-	canvas.style.top = "${dp_width}px";
+	canvas.style.top = `${dp_width}px`;
 	break;
     }
-
 
     var dp_offset = (dp_height - dp_width) / 2.0;
     var px_offset = Math.round(dp_offset * dpr);
     var offset = px_offset / dpr;
 
-    console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
+    console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle +
 		" offset=" + offset);
 
@@ -76,9 +73,10 @@ function init2D() {
     // Text
     c2.fillStyle = 'rgb(255,255,255)';
     c2.font = "40px Arial";
-    c2.fillText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`, 10, 50);
+    var text = `Xpixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`;
+    c2.fillText(text, 10, 50);
     c2.strokeStyle = 'rgb(0,0,0)';
-    c2.strokeText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`, 10, 50);
+    c2.strokeText(text, 10, 50);
 
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
