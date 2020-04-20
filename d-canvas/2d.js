@@ -9,8 +9,8 @@ function init2D() {
     const dpr = devicePixelRatio;
     const dp_width = window.innerWidth;
     const dp_height = window.innerHeight;
-    pixel_width = Math.round(dp_width * dpr);
-    pixel_height = Math.round(dp_height * dpr);
+    pixel_width = Math.floor(dp_width * dpr);
+    pixel_height = Math.floor(dp_height * dpr);
 
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
@@ -82,7 +82,7 @@ function draw() {
   // Text
   c2.fillStyle = 'rgb(255,255,255)';
   c2.font = "40px Arial";
-  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`;
+  var text = `F Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`;
   c2.fillText(text, 10, 50);
   c2.strokeStyle = 'rgb(0,0,0)';
   c2.strokeText(text, 10, 50);
