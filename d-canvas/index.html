@@ -97,7 +97,7 @@ body {
       gl.enable(gl.SCISSOR_TEST);
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
-  window.addEventListener('resize', function() {setTimeout(setSizeAndRotation, 1);});
+  window.addEventListener('resize', function() {setTimeout(setSizeAndRotation, 100);});
   setSizeAndRotation();
 </script>
 </html>
