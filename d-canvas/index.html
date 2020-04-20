@@ -39,6 +39,7 @@ body {
   requestAnimationFrame(raf);
 
   const setSizeAndRotation = () => {
+      console.log('update');
       const angle = screen.orientation.angle % 360;
       canvas.style.transform = `rotateZ(${angle}deg)`;
       const dpr = devicePixelRatio;
@@ -53,8 +54,8 @@ body {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
           var offset = (dp_height - dp_width) / 2;
-          canvas.style.left = `${offset}px`;
-          canvas.style.top = `-${offset}px`;
+//          canvas.style.left = `${offset}px`;
+//          canvas.style.top = `-${offset}px`;
           canvas.height = pixel_width;
           canvas.width = pixel_height;
       } else {
