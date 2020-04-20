@@ -89,7 +89,7 @@ function draw() {
   c2.save();
   c2.translate(300, 300);
   c2.rotate(deg);
-  deg += 0.1;
+  deg += 0.02;
   c2.fillStyle = 'rgb(255,255,255)';
   c2.fillRect(-150, -150, 300, 300);
   c2.restore();
