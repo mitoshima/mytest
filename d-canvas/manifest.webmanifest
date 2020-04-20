@@ -1,7 +1,7 @@
 {
   "background_color": "purple",
   "description": "Hardware Overlay Demo.",
-  "display": "fullscreen",
+  "display": "standalone",
   "name": "Hardware Overlay Demo",
   "short_name": "HWOverlay",
   "start_url": "/mytest/d-canvas/index.html",
