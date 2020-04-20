@@ -61,6 +61,8 @@ body {
       } else {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
+          canvas.style.left = "0px";
+          canvas.style.top = "0px";
           canvas.width  = pixel_width;
           canvas.height = pixel_height;
       }
@@ -97,7 +99,7 @@ body {
       gl.enable(gl.SCISSOR_TEST);
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
-  window.addEventListener('resize', function() {setTimeout(setSizeAndRotation, 1000);});
+  window.addEventListener('resize',  setSizeAndRotation);
   setSizeAndRotation();
 </script>
 </html>
