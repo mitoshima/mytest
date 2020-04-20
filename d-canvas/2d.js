@@ -13,7 +13,7 @@ function init2D() {
     var pixel_height = Math.floor(dp_height * dpr);
     var offset = (dp_height - dp_width) / 2;
     console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
-		" angle=" + screen.orientation.angle
+		" angle=" + screen.orientation.angle +
 		" offset=" + offset);
 
     if (angle % 180 == 90) {
@@ -46,9 +46,9 @@ function init2D() {
     // Text
     c2.fillStyle = 'rgb(255,255,255)';
     c2.font = "40px Arial";
-    c2.fillText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`, 10, 50);
+    c2.fillText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`, 10, 50);
     c2.strokeStyle = 'rgb(0,0,0)';
-    c2.strokeText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`, 10, 50);
+    c2.strokeText(`pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`, 10, 50);
 
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
