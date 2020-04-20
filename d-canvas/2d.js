@@ -1,3 +1,6 @@
+var pixel_width;
+var pixel_height;
+
 function init2D() {
   const canvas = document.querySelector('canvas');
 
@@ -6,8 +9,8 @@ function init2D() {
     const dpr = devicePixelRatio;
     const dp_width = window.innerWidth;
     const dp_height = window.innerHeight;
-    var pixel_width = Math.round(dp_width * dpr);
-    var pixel_height = Math.round(dp_height * dpr);
+    pixel_width = Math.round(dp_width * dpr);
+    pixel_height = Math.round(dp_height * dpr);
 
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
@@ -53,11 +56,11 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle +
 		" left = " + canvas.style.left);
-    draw();
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
   window.addEventListener('resize',  setSizeAndRotation);
   setSizeAndRotation();
+  draw();
 }
 
 var deg = 0;
@@ -67,8 +70,6 @@ function draw() {
   const dpr = devicePixelRatio;
   const dp_width = window.innerWidth;
   const dp_height = window.innerHeight;
-  var pixel_width = Math.round(dp_width * dpr);
-  var pixel_height = Math.round(dp_height * dpr);
 
   const canvas = document.querySelector('canvas');
   const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
@@ -94,6 +95,6 @@ function draw() {
   c2.fillRect(-150, -150, 300, 300);
   c2.restore();
 
-  // don't use animatino frame for desync canvas.
-  setTimeout(draw, 300);
+  requestAnimationFrame(draw);
+  //setTimeout(draw, 300);
 }
