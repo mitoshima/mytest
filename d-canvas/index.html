@@ -20,7 +20,7 @@ body {
   const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
   //const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
 
-  gl.clearColor(1, 1, 1, 1);
+  gl.clearColor(1, 1, 0, 1);
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.scissor(125, 63, 250, 125);
   gl.enable(gl.SCISSOR_TEST);
@@ -53,8 +53,8 @@ body {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
           var offset = (dp_height - dp_width) / 2;
-          canvas.style.left = `${offset}px`;
-          canvas.style.top = `${offset}px`;
+//          canvas.style.left = `${offset}px`;
+//          canvas.style.top = `${offset}px`;
           canvas.height = pixel_width;
           canvas.width = pixel_height;
       } else {
