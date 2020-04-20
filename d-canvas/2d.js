@@ -95,6 +95,6 @@ function draw() {
   c2.fillRect(-150, -150, 300, 300);
   c2.restore();
 
-  requestAnimationFrame(draw);
-  //setTimeout(draw, 300);
+  // don't use requestAnimationFrame
+  setTimeout(draw, 166);
 }
