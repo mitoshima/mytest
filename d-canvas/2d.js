@@ -94,5 +94,6 @@ function draw() {
   c2.fillRect(-150, -150, 300, 300);
   c2.restore();
 
-  requestAnimationFrame(draw);
+  // don't use animatino frame for desync canvas.
+  setTimeout(draw, 300);
 }
