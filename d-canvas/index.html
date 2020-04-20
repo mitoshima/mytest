@@ -39,8 +39,8 @@ body {
   requestAnimationFrame(raf);
 
   const setSizeAndRotation = () => {
-      console.log('update');
       const angle = screen.orientation.angle % 360;
+      console.log('update:' + angle);
       canvas.style.transform = `rotateZ(${angle}deg)`;
       const dpr = devicePixelRatio;
       //      canvas.style.border = `${1 / dpr}px solid black`;
