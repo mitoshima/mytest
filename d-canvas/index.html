@@ -90,8 +90,9 @@ body {
       gl.clearColor(1, 1, 0.2, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.flush();
-      angle % 180 == 90 ? gl.scissor(63, 125, 125, 250)
-          : gl.scissor(125, 63, 250, 125);
+      gl.scissor(63, 125, 125, 250)
+      //angle % 180 == 90 ? gl.scissor(63, 125, 125, 250)
+      //    : gl.scissor(125, 63, 250, 125);
       gl.enable(gl.SCISSOR_TEST);
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
