@@ -47,9 +47,10 @@ canvas {
 
   const setSizeAndRotation = () => {
       const angle = screen.orientation.angle % 360;
-//      canvas.style.transform = `rotateZ(${angle}deg)`;
+      canvas.style.transform = `rotateZ(${angle}deg)`;
       const dpr = devicePixelRatio;
-//      canvas.style.border = `${1 / dpr}px solid black`;
+      //      canvas.style.border = `${1 / dpr}px solid black`;
+      canvas.rotate(angle / 180 * Math.PI);
 
       var dp_width = window.innerWidth;
       var dp_height = window.innerHeight;
@@ -59,6 +60,9 @@ canvas {
       if (angle % 180 == 90) {
           canvas.style.width = `${dp_width}px`;
           canvas.style.height = `${dp_height}px`;
+          var offset = (dp_height - dp_width) / 2;
+          canvas.style.left = `${offset}px`;
+          canvas.style.top = `${offset}px`;
           canvas.height = pixel_width;
           canvas.width = pixel_height;
       } else {
@@ -66,6 +70,12 @@ canvas {
           canvas.style.height = `${dp_height}px`;
           canvas.width  = pixel_width;
           canvas.height = pixel_height;
+      }
+      switch (angle) {
+          case 0:
+          case 90:
+          case 180:
+          case 270:
       }
       c2.fillStyle = 'rgb(255,255,0)';
       c2.fillRect(0, 0, pixel_width, pixel_height);
