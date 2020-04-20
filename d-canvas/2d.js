@@ -14,21 +14,16 @@ function init2D() {
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
       canvas.style.height = `${dp_width}px`;
-      canvas.style.left = `-${offset}px`;
-      canvas.style.top = `${offset}px`;
-      canvas.height = pixel_width;
-      canvas.width = pixel_height;
       var tmp = pixel_height;
       pixel_height = pixel_width;
       pixel_width = tmp;
     } else {
       canvas.style.width = `${dp_width}px`;
       canvas.style.height = `${dp_height}px`;
-      canvas.style.left = "0px";
-      canvas.style.top = "0px";
-      canvas.width  = pixel_width;
-      canvas.height = pixel_height;
     }
+    canvas.width  = pixel_width;
+    canvas.height = pixel_height;
+
     canvas.style.transform = `rotateZ(${angle}deg)`;
     switch (angle) {
       case 0:
@@ -40,6 +35,7 @@ function init2D() {
 	canvas.style.transformOrigin = "top left";
 	canvas.style.left = `${dp_height}px`;
 	canvas.style.top = "0px";
+	console.log('90 = ' + `${dp_height}`);
 	break;
       case 180:
 	canvas.style.transformOrigin = "top left";
@@ -59,8 +55,7 @@ function init2D() {
 
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle +
-		" offset=" + offset);
-
+		" left = " + canvas.style.left);
 
     c2.fillStyle = 'rgb(255,255,0)';
     c2.fillRect(0, 0, pixel_width, pixel_height);
