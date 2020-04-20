@@ -8,8 +8,8 @@ function init2D() {
 
     var dp_width = window.innerWidth;
     var dp_height = window.innerHeight;
-    var pixel_width = Math.floor(dp_width * dpr);
-    var pixel_height = Math.floor(dp_height * dpr);
+    var pixel_width = Math.round(dp_width * dpr);
+    var pixel_height = Math.round(dp_height * dpr);
 
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
