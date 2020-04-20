@@ -22,6 +22,9 @@ function init2D() {
       canvas.style.top = `${offset}px`;
       canvas.height = pixel_width;
       canvas.width = pixel_height;
+      var tmp = pixel_height;
+      pixel_height = pixel_width;
+      pixel_width = tmp;
     } else {
       canvas.style.width = `${dp_width}px`;
       canvas.style.height = `${dp_height}px`;
