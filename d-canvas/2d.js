@@ -1,13 +1,11 @@
 function init2D() {
   const canvas = document.querySelector('canvas');
-  const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
 
   const setSizeAndRotation = () => {
     const angle = screen.orientation.angle % 360;
     const dpr = devicePixelRatio;
-
-    var dp_width = window.innerWidth;
-    var dp_height = window.innerHeight;
+    const dp_width = window.innerWidth;
+    const dp_height = window.innerHeight;
     var pixel_width = Math.round(dp_width * dpr);
     var pixel_height = Math.round(dp_height * dpr);
 
@@ -55,25 +53,46 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle +
 		" left = " + canvas.style.left);
-
-    c2.fillStyle = 'rgb(255,255,0)';
-    c2.fillRect(0, 0, pixel_width, pixel_height);
-    c2.strokeStyle = 'rgb(255,0,0)';
-    c2.strokeRect(0, 0, pixel_width, pixel_height);
-
-    c2.fillStyle = 'rgb(255,255,255)';
-    c2.fillRect(100, 100, 200, 200);
-
-    // Text
-    c2.fillStyle = 'rgb(255,255,255)';
-    c2.font = "40px Arial";
-    var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} offset=${offset}`;
-    c2.fillText(text, 10, 50);
-    c2.strokeStyle = 'rgb(0,0,0)';
-    c2.strokeText(text, 10, 50);
-
+    draw();
   };
   screen.orientation.addEventListener('change', setSizeAndRotation);
   window.addEventListener('resize',  setSizeAndRotation);
   setSizeAndRotation();
+}
+
+var deg = 0;
+
+function draw() {
+  const angle = screen.orientation.angle % 360;
+  const dpr = devicePixelRatio;
+  const dp_width = window.innerWidth;
+  const dp_height = window.innerHeight;
+  var pixel_width = Math.round(dp_width * dpr);
+  var pixel_height = Math.round(dp_height * dpr);
+
+  const canvas = document.querySelector('canvas');
+  const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
+
+  c2.fillStyle = 'rgb(255,255,0)';
+  c2.fillRect(0, 0, pixel_width, pixel_height);
+  c2.strokeStyle = 'rgb(255,0,0)';
+  c2.strokeRect(0, 0, pixel_width, pixel_height);
+
+  // Text
+  c2.fillStyle = 'rgb(255,255,255)';
+  c2.font = "40px Arial";
+  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`;
+  c2.fillText(text, 10, 50);
+  c2.strokeStyle = 'rgb(0,0,0)';
+  c2.strokeText(text, 10, 50);
+
+  c2.save();
+  c2.translate(300, 300);
+  c2.rotate(deg);
+  deg += 0.1;
+  c2.fillStyle = 'rgb(255,255,255)';
+  c2.fillRect(-150, -150, 300, 300);
+  c2.restore();
+
+  requestAnimationFrame(draw);
 }
