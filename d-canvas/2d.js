@@ -11,13 +11,6 @@ function init2D() {
     var dp_height = window.innerHeight;
     var pixel_width = Math.floor(dp_width * dpr);
     var pixel_height = Math.floor(dp_height * dpr);
-    var dp_offset = (dp_height - dp_width) / 2.0;
-    var px_offset = Math.round(dp_offset * dpr);
-    var offset = px_offset / dpr;
-
-    console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
-		" angle=" + screen.orientation.angle +
-		" offset=" + offset);
 
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
@@ -25,7 +18,9 @@ function init2D() {
       canvas.style.left = `-${offset}px`;
       canvas.style.top = `${offset}px`;
       canvas.height = pixel_width;
-      canvas.width = pixel_height;
+      canvas.width = p
+
+      ixel_height;
       var tmp = pixel_height;
       pixel_height = pixel_width;
       pixel_width = tmp;
@@ -37,6 +32,38 @@ function init2D() {
       canvas.width  = pixel_width;
       canvas.height = pixel_height;
     }
+    switch (angle) {
+      case 0:
+	canvas.style.transform-origin = "top left";
+	canvas.style.left = "0px";
+	canvas.style.top = "0px";
+	break;
+      case 90:
+	canvas.style.transform-origin = "top left";
+	canvas.style.left = "${dp_height}0px";
+	canvas.style.top = "0px";
+	break;
+      case 180:
+	canvas.style.transform-origin = "right bottom";
+	canvas.style.left = "-${dp_width}0px";
+	canvas.style.top = "-${dp_height}0px";
+	break;
+      case 270:
+	canvas.style.transform-origin = "top left";
+	canvas.style.left = "0px";
+	canvas.style.top = "${dp_width}px";
+	break;
+    }
+
+
+    var dp_offset = (dp_height - dp_width) / 2.0;
+    var px_offset = Math.round(dp_offset * dpr);
+    var offset = px_offset / dpr;
+
+    console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
+		" angle=" + screen.orientation.angle +
+		" offset=" + offset);
+
 
     c2.fillStyle = 'rgb(255,255,0)';
     c2.fillRect(0, 0, pixel_width, pixel_height);
