@@ -11,13 +11,14 @@ function init2D() {
     var dp_height = window.innerHeight;
     var pixel_width = Math.floor(dp_width * dpr);
     var pixel_height = Math.floor(dp_height * dpr);
+    var offset = (dp_height - dp_width) / 2;
     console.log('update:' + angle + ", size=" + dp_width + "x" + dp_height +
-		" angle=" + screen.orientation.angle);
+		" angle=" + screen.orientation.angle
+		" offset=" + offset);
 
     if (angle % 180 == 90) {
       canvas.style.width = `${dp_height}px`;
       canvas.style.height = `${dp_width}px`;
-      var offset = (dp_height - dp_width) / 2;
       canvas.style.left = `-${offset}px`;
       canvas.style.top = `${offset}px`;
       canvas.height = pixel_width;
