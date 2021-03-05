@@ -48,12 +48,9 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle);
   };
-  const asyncSetSizeAndRotation = () => {
-    setTimeout(setSizeAndRotation, 1000);
-  };
 
-  screen.orientation.addEventListener('change', asyncSetSizeAndRotation);
-  window.addEventListener('resize', asyncSetSizeAndRotation);
+  screen.orientation.addEventListener('change', setSizeAndRotation);
+  window.addEventListener('resize', setSizeAndRotation);
 
   document.documentElement.addEventListener('click',  setSizeAndRotation);
   setSizeAndRotation();
@@ -79,7 +76,7 @@ function draw() {
   // Text
   c2.fillStyle = 'rgb(255,255,255)';
   c2.font = "40px Arial";
-  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} async`;
+  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle}`;
   c2.fillText(text, 10, 50);
   c2.strokeStyle = 'rgb(0,0,0)';
   c2.strokeText(text, 10, 50);
