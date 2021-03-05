@@ -48,7 +48,7 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle);
   };
-  //screen.orientation.addEventListener('change', setSizeAndRotation);
+  // screen.orientation.addEventListener('change', setSizeAndRotation);
   window.addEventListener('resize',  setSizeAndRotation);
   setSizeAndRotation();
   draw();
