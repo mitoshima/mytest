@@ -2,10 +2,32 @@
   <head>
   </head>
   <body>
+    <button onclick="doReload()">
+      Reload
+    </button>
+    <button onclick="toggleFull()">
+      Toggle Full
+    </button>
+    <hr>
     innerWidth x innerHeight =
     <script language="javascript">
       document.write(window.innerWidth + "x" +
                      window.innerHeight);
     </script>
   </body>
+  <script>
+    function doReload() {
+        location.reload();
+    }
+    var full = false;
+    function toggleFull() {
+        if (!full) {
+            full = true;
+            document.documentElement.requestFullscreen();
+        } else {
+            full = false;
+            document.exitFullscreen();
+        }
+    }
+    </script>
 </html>
