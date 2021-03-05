@@ -51,6 +51,7 @@ function init2D() {
   const asyncSetSizeAndRotation = () => {
     setTimeout(setSizeAndRotation, 1000);
   };
+
   screen.orientation.addEventListener('change', asyncSetSizeAndRotation);
   window.addEventListener('resize', asyncSetSizeAndRotation);
 
