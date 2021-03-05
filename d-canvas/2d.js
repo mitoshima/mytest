@@ -5,10 +5,10 @@ function init2D() {
   const canvas = document.querySelector('canvas');
 
   const setSizeAndRotation = () => {
-    const angle = screen.orientation.angle % 360;
-    const dpr = devicePixelRatio;
-    const dp_width = window.innerWidth;
-    const dp_height = window.innerHeight;
+    var angle = screen.orientation.angle % 360;
+    var dpr = devicePixelRatio;
+    var dp_width = window.innerWidth;
+    var dp_height = window.innerHeight;
     pixel_width = Math.round(dp_width * dpr);
     pixel_height = Math.round(dp_height * dpr);
 
