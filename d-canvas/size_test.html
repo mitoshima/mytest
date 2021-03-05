@@ -8,12 +8,12 @@
     <button onclick="toggleFull()">
       Toggle Full
     </button>
+    <button onclick="updateSize()">
+      Re-read size
+    </button>
     <hr>
     innerWidth x innerHeight =
-    <script language="javascript">
-      document.write(window.innerWidth + "x" +
-                     window.innerHeight);
-    </script>
+    <div id="size"> Size </div>
   </body>
   <script>
     function doReload() {
@@ -29,5 +29,11 @@
             document.exitFullscreen();
         }
     }
+    function updateSize() {
+        document.getElementById("size").innerHTML =
+            (window.innerWidth + "x" +
+             window.innerHeight + "<hr>");
+    }
+      updateSize();
     </script>
 </html>
