@@ -5,14 +5,3 @@ if('serviceWorker' in navigator) {
            .register('/mytest/d-canvas/sw.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
-
-var full = false;
-function toggleFullscreen() {
-  if (full) {
-    full = false;
-    document.exitFullscreen();
-  } else {
-    full = true;
-    document.documentElement.requestFullscreen();
-  }
-}

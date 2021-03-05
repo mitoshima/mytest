@@ -1,12 +1,10 @@
 var pixel_width;
 var pixel_height;
 
-var count = 0;
 function init2D() {
   const canvas = document.querySelector('canvas');
 
   const setSizeAndRotation = () => {
-    count ++;
     const angle = screen.orientation.angle % 360;
     const dpr = devicePixelRatio;
     const dp_width = window.innerWidth;
@@ -50,8 +48,12 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle);
   };
-  // screen.orientation.addEventListener('change', setSizeAndRotation);
-  window.addEventListener('resize',  setSizeAndRotation);
+  const asyncSetSizeAndRotation = () => {
+    setTimeout(setSizeAndRotation, 1000);
+  };
+  screen.orientation.addEventListener('change', asyncSetSizeAndRotation);
+  window.addEventListener('resize', asyncSetSizeAndRotation);
+
   document.documentElement.addEventListener('click',  setSizeAndRotation);
   setSizeAndRotation();
   draw();
@@ -76,7 +78,7 @@ function draw() {
   // Text
   c2.fillStyle = 'rgb(255,255,255)';
   c2.font = "40px Arial";
-  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} count=${count}`;
+  var text = `Pixel size=${pixel_width}x${pixel_height} dp size=${dp_width}x${dp_height} dpr=${dpr} angle=${angle} async`;
   c2.fillText(text, 10, 50);
   c2.strokeStyle = 'rgb(0,0,0)';
   c2.strokeText(text, 10, 50);
