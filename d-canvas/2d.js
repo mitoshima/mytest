@@ -50,8 +50,12 @@ function init2D() {
     console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle);
   };
+  const asyncSetSizeAndRotation = () => {
+    setTimeout(setSizeAndRotation, 1000);
+  };
   // screen.orientation.addEventListener('change', setSizeAndRotation);
-  window.addEventListener('resize',  setSizeAndRotation);
+  window.addEventListener('resize', asyncSetSizeAndRotation);
+
   document.documentElement.addEventListener('click',  setSizeAndRotation);
   setSizeAndRotation();
   draw();
