@@ -45,7 +45,7 @@ function init2D() {
 	break;
     }
 
-    console.log("update1:" + angle + ", size=" + window.innerWidth + "x" + window.innerHeight +
+    console.log("update1 size=" + window.innerWidth + "x" + window.innerHeight +
 		" angle=" + screen.orientation.angle);
   };
 
