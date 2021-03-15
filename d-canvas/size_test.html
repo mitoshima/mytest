@@ -30,12 +30,12 @@
             document.exitFullscreen();
         }
     }
-    function updateSize() {
+    let setSizeAndRotation = () => {
         document.getElementById("size").innerHTML =
             (window.innerWidth + "x" +
              window.innerHeight + "<hr>");
     }
-    updateSize();
-    window.addEventListener('resize', updateSize);
+    setSizeAndRotation();
+    window.addEventListener('resize', setSizeAndRotation);
     </script>
 </html>
