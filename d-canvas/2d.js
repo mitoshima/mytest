@@ -5,7 +5,7 @@ function init2D() {
   let canvas = document.querySelector('canvas');
 
   let setSizeAndRotation = () => {
-    console.log("window size=" + window.innerwidth + "x" + window.innerHeight);
+    console.log("window size=" + window.innerWidth + "x" + window.innerHeight);
     let angle = screen.orientation.angle % 360;
     let dpr = devicePixelRatio;
     let dp_width = window.innerWidth;
@@ -50,7 +50,6 @@ function init2D() {
 		" angle=" + screen.orientation.angle);
   };
 
-  screen.orientation.addEventListener('change', setSizeAndRotation);
   window.addEventListener('resize', setSizeAndRotation);
 
   document.documentElement.addEventListener('click',  setSizeAndRotation);
