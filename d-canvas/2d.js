@@ -22,9 +22,6 @@ function init2D() {
       canvas.style.width = `${dp_width}px`;
       canvas.style.height = `${dp_height}px`;
     }
-    canvas.width  = pixel_width;
-    canvas.height = pixel_height;
-
     canvas.style.transform = `rotateZ(${angle}deg)`;
     switch (angle) {
       case 0:
@@ -44,6 +41,9 @@ function init2D() {
 	canvas.style.top = `${dp_height}px`;
 	break;
     }
+
+    canvas.width  = pixel_width;
+    canvas.height = pixel_height;
 
     console.log("update1 size=" + window.innerWidth + "x" + window.innerHeight +
 		" angle=" + screen.orientation.angle);
