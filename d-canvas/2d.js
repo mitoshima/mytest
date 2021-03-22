@@ -3,12 +3,13 @@ var pixel_height;
 
 function init2D() {
   let canvas = document.querySelector('canvas');
+  let container = document.querySelector('#container');
 
   let setSizeAndRotation = () => {
     let angle = screen.orientation.angle % 360;
     let dpr = devicePixelRatio;
-    let dp_width = window.innerWidth;
-    let dp_height = window.innerHeight;
+    let dp_width = container.clientWidth;
+    let dp_height = container.clientHeight;
     pixel_width = Math.round(dp_width * dpr);
     pixel_height = Math.round(dp_height * dpr);
 
@@ -45,7 +46,7 @@ function init2D() {
     canvas.width  = pixel_width;
     canvas.height = pixel_height;
 
-    console.log("update1 size=" + window.innerWidth + "x" + window.innerHeight +
+    console.log("update1 size=" + container.clientWidth + "x" + container.clientHeight +
 		" angle=" + screen.orientation.angle);
   };
 
