@@ -1,16 +1,5 @@
 <html>
   <head>
-    <style>
-canvas {
-  border: 0px solid black;
-  transform-origin: top left;
-}
-body {
-    margin: 0px;
-}
-    </style>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   </head>
   <body>
     <button onclick="doReload()">
@@ -25,8 +14,6 @@ body {
     <hr>
     innerWidth x innerHeight =
     <div id="size"> Size </div>
-    <script src="2d.js"> </script>
-    <canvas></canvas>
   </body>
   <script>
     function doReload() {
@@ -43,9 +30,10 @@ body {
         }
     }
     function updateSize() {
-        console.log("x=" + window.innerWidth + "x" +
-                    window.innerHeight);
+        document.getElementById("size").innerHTML =
+            (window.innerWidth + "x" +
+             window.innerHeight + "<hr>");
     }
-    window.addEventListener('resize', updateSize);
+      updateSize();
     </script>
 </html>

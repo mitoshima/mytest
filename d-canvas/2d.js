@@ -2,14 +2,13 @@ var pixel_width;
 var pixel_height;
 
 function init2D() {
-  let canvas = document.querySelector('canvas');
-  let container = document.querySelector('#container');
+  const canvas = document.querySelector('canvas');
 
-  let setSizeAndRotation = () => {
-    let angle = screen.orientation.angle % 360;
-    let dpr = devicePixelRatio;
-    let dp_width = container.clientWidth;
-    let dp_height = container.clientHeight;
+  const setSizeAndRotation = () => {
+    const angle = screen.orientation.angle % 360;
+    const dpr = devicePixelRatio;
+    const dp_width = window.innerWidth;
+    const dp_height = window.innerHeight;
     pixel_width = Math.round(dp_width * dpr);
     pixel_height = Math.round(dp_height * dpr);
 
@@ -23,6 +22,9 @@ function init2D() {
       canvas.style.width = `${dp_width}px`;
       canvas.style.height = `${dp_height}px`;
     }
+    canvas.width  = pixel_width;
+    canvas.height = pixel_height;
+
     canvas.style.transform = `rotateZ(${angle}deg)`;
     switch (angle) {
       case 0:
@@ -43,17 +45,11 @@ function init2D() {
 	break;
     }
 
-    canvas.width  = pixel_width;
-    canvas.height = pixel_height;
-
-    console.log("update1 size=" + container.clientWidth + "x" + container.clientHeight +
+    console.log("update1:" + angle + ", size=" + dp_width + "x" + dp_height +
 		" angle=" + screen.orientation.angle);
   };
-
-  screen.orientation.addEventListener('change', setSizeAndRotation);
-  window.addEventListener('resize', setSizeAndRotation);
-
-  document.documentElement.addEventListener('click',  setSizeAndRotation);
+  // screen.orientation.addEventListener('change', setSizeAndRotation);
+  window.addEventListener('resize',  setSizeAndRotation);
   setSizeAndRotation();
   draw();
 }
@@ -61,13 +57,13 @@ function init2D() {
 var deg = 0;
 
 function draw() {
-  let angle = screen.orientation.angle % 360;
-  let dpr = devicePixelRatio;
-  let dp_width = window.innerWidth;
-  let dp_height = window.innerHeight;
+  const angle = screen.orientation.angle % 360;
+  const dpr = devicePixelRatio;
+  const dp_width = window.innerWidth;
+  const dp_height = window.innerHeight;
 
-  let canvas = document.querySelector('canvas');
-  let c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
+  const canvas = document.querySelector('canvas');
+  const c2 = canvas.getContext('2d', {desynchronized: true, alpha: false});
 
   c2.fillStyle = 'rgb(255,255,0)';
   c2.fillRect(0, 0, pixel_width, pixel_height);

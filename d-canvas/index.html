@@ -6,21 +6,20 @@ canvas {
   position: absolute;
   transform-origin: top left;
 }
-#container {
-    padding: 0px;
-}
 body {
     margin: 0px;
 }
     </style>
     <title>Hardware Overlay Demo</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <script src="index.js" defer></script>
+    <script src="webgl.js"> </script>
     <script src="2d.js"> </script>
+    <link rel="manifest" href="manifest.webmanifest">
   </head>
-  <body>
-    <div id="container">
-      <canvas></canvas>
-    </div>
+  <bod onclick="toggleFullscreen()">
+    <canvas></canvas>
   </body>
   <script>init2D(); </script>
 </html>
