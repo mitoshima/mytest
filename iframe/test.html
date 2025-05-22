@@ -1,4 +1,28 @@
 <html>
-	test
-</html>
+<body>
+<textarea id="logs" cols=80 rows=27></textarea>
+<script>
+function push(line) {
+  document.getElementById("logs").value += line + '\n';
+}
 
+function update() {
+  push(`screen.(width, height) = (${screen.width}, ${screen.height})`);
+  push(`(innerWidth, innerHeight) = (${window.innerWidth}, ${window.innerHeight})`);
+  push(`(clientWidth, clientHeight) = (${document.documentElement.clientWidth}, ${document.documentElement.clientHeight})`);
+  push(`devicePixelRatio = ${window.devicePixelRatio}`);
+  push("----------------------------------------");
+}
+update();
+
+function listenOnDevicePixelRatio() {
+  function onChange() {
+    update();
+    listenOnDevicePixelRatio();
+  }
+  matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener("change", onChange, { once: true });
+}
+listenOnDevicePixelRatio();
+</script>
+</body>
+</html>
